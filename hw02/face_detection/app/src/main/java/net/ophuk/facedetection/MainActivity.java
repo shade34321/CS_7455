@@ -22,6 +22,14 @@ public class MainActivity extends Activity implements CvCameraViewListener {
     private Mat grayscaleImage;
     private int absoluteFaceSize;
 
+    static {
+        if(!OpenCVLoader.initDebug()) {
+            Log.d("Shade", "OpenCV not loaded!");
+        } else {
+            Log.d("Shade", "OpenCV loaded!");
+        }
+    }
+
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
         @Override
         public void onManagerConnected(int status) {
